@@ -7,10 +7,10 @@ def stock_picker(prices)
   prices.each_with_index do |price, day|
     if(day != prices.length - 1 )
       remaining_prices = prices.slice(day + 1, prices.length - 1) 
-      max = remaining_prices.max()
-      highest_profit_for_today = calculate_profit(max, price)
+      max_price = remaining_prices.max()
+      highest_profit_for_today = calculate_profit(max_price, price)
       highest_profit_each_day.push(highest_profit_for_today) 
-      highest_profit_each_day_pair.push([day, prices.find_index(max)])
+      highest_profit_each_day_pair.push([day, prices.find_index(max_price)])
     end
   end
   maximum_profit = highest_profit_each_day.max()
