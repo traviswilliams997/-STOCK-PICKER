@@ -11,11 +11,10 @@ def stock_picker(prices)
     end
   end
   maximum_profit = highest_profit_each_day.max()
-  maximum_profit_day_pair_index = highest_profit_each_day.find_index(maximum_profit)   
-  p highest_profit_each_day_pair[maximum_profit_day_pair_index]
-
-
-
+  maximum_profit_day_pair_index = highest_profit_each_day.each_index.select{|i| highest_profit_each_day[i] == maximum_profit}
+  maximum_profit_day_pair_index.each do |index|
+    p highest_profit_each_day_pair[index]
+  end
 end
 
-  stock_picker([17,3,6,9,15,8,6,1,10])
+  stock_picker([17,3,6,9,15,8,6,1,13])
